@@ -1,5 +1,5 @@
 # Auto-elevate script to Administrator
-if (-not ([Security.Principal].WindowsPrincipal][Security.Principal].WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal].WindowsBuiltInRole]::Administrator)) {
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
     exit
 }
@@ -108,7 +108,7 @@ $tabAppsRoot     = New-Object System.Windows.Forms.TabPage; $tabAppsRoot.Text   
 $tabUninstall    = New-Object System.Windows.Forms.TabPage; $tabUninstall.Text    = "🗑️ 2. Debloat & Uninstall"
 $tabScriptsRoot  = New-Object System.Windows.Forms.TabPage; $tabScriptsRoot.Text  = "📜 3. Scripts"
 $tabTweaksRoot   = New-Object System.Windows.Forms.TabPage; $tabTweaksRoot.Text   = "🚀 4. System Tweaks"
-$tabSettingsRoot = New-Object System.Windows.Forms.TabPage; $tabSettingsRoot.Text = "⚙️️ 5. Windows Settings"
+$tabSettingsRoot = New-Object System.Windows.Forms.TabPage; $tabSettingsRoot.Text = "⚙ 5. Windows Settings"
 
 $mainTabControl.Controls.Add($tabAppsRoot)
 $mainTabControl.Controls.Add($tabUninstall)
